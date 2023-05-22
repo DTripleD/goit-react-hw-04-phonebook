@@ -15,9 +15,9 @@ const initContacts = [
 ];
 
 const App = () => {
-  const savedContacts = JSON.parse(localStorage.getItem(LS_KEY));
-
-  const [contacts, setContacts] = useState(() => savedContacts ?? initContacts);
+  const [contacts, setContacts] = useState(
+    () => JSON.parse(localStorage.getItem(LS_KEY)) ?? initContacts
+  );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
